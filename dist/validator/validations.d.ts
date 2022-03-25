@@ -1,0 +1,16 @@
+export declare function dateTest(date: string | Date): boolean;
+export declare function numberTest(number: number | string): boolean;
+export declare function stringTest(str: string): boolean;
+export declare function emailTest(str: string): boolean;
+export declare function bigIntTest(val: number): boolean;
+export declare function generoTest(val: string): boolean;
+export declare function statusTest(val: string): boolean;
+export declare function cepTest(val: string): boolean;
+export declare function cpfTest(val: string): boolean;
+export declare function cnpjTest(val: string): boolean;
+export declare function inscEstadualTest(val: string): boolean;
+export declare function hourTest(val: string): boolean;
+export declare function booleanTest(val: boolean): boolean;
+export declare function phoneBrTest(str: string): boolean;
+export declare function lengthStringTest(str: string, length: number): boolean;
+export declare function specialCharacterTest(str: string): boolean;

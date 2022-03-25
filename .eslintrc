@@ -1,0 +1,59 @@
+{
+  "plugins": ["@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "globals": {
+    "process": true,
+    "console": true,
+    "require": true,
+    "module": true,
+    "Promise": true,
+    "Array": true,
+    "Object": true,
+    "Class": true,
+    "Number": true,
+    "String": true,
+    "JSON": true,
+    "Set": true,
+    "setInterval": true,
+    "clearTimeout": true,
+    "setTimeout": true,
+    "Buffer": true,
+    "Reflect": true,
+    "__dirname": true
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [["@", "./src"]],
+        "extensions": [".js"]
+      }
+    }
+  },
+  "extends": [
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-var-requires": "warn",
+    "no-console": "off",
+    "no-debugger": "warn",
+    "no-undef": "error",
+    "prefer-const": "warn",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}
