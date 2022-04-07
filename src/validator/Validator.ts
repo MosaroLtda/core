@@ -7,7 +7,7 @@ import rulesAdapter from './rulesAdapter';
 export class Validator<BodyInterface = any> implements IValidator {
   constructor(private readonly validateRules: ValidateRule) {}
 
-  private verify(body: BodyInterface) {
+  private verify = (body: BodyInterface) => {
     try {
       const attributesToValidate = Object.keys(this.validateRules);
 
@@ -64,9 +64,9 @@ export class Validator<BodyInterface = any> implements IValidator {
       const error: ValidationError = err;
       return { isValid: false, error };
     }
-  }
+  };
 
-  isValid(body: BodyInterface, showLogAttributeIsNotValid?: boolean): boolean {
+  isValid = (body: BodyInterface, showLogAttributeIsNotValid?: boolean): boolean => {
     const check = this.verify(body);
 
     if (!check.isValid) {
@@ -76,17 +76,17 @@ export class Validator<BodyInterface = any> implements IValidator {
     }
 
     return true;
-  }
+  };
 
-  verifyIsValidAndEmmitValidationError(body: BodyInterface) {
+  verifyIsValidAndEmmitValidationError = (body: BodyInterface) => {
     const check = this.verify(body);
 
     if (!check.isValid) throw check.error;
 
     return true;
-  }
+  };
 
-  verifyIsValidAndEmmitHttpError(body: BodyInterface) {
+  verifyIsValidAndEmmitHttpError = (body: BodyInterface) => {
     const check = this.verify(body);
 
     if (!check.isValid) {
@@ -94,9 +94,9 @@ export class Validator<BodyInterface = any> implements IValidator {
     }
 
     return true;
-  }
+  };
 
-  adapterToHttpMiddleware(httpRequestOption: HttpRequestOptions): HttpHandleMiddleware {
+  adapterToHttpMiddleware = (httpRequestOption: HttpRequestOptions): HttpHandleMiddleware => {
     return (httpRequest) => {
       const data = httpRequest[httpRequestOption];
 
@@ -107,5 +107,5 @@ export class Validator<BodyInterface = any> implements IValidator {
       this.verifyIsValidAndEmmitHttpError(data);
       return httpRequest;
     };
-  }
+  };
 }
