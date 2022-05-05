@@ -33,7 +33,11 @@ export function createModule(moduleInstance: IModule): IModule {
 export const addVersionOnRoutes = (appModules: IModule[], version: string): IModuleWithVersion[] => {
   return appModules.map((appModule) => ({
     ...appModule,
-    version: `/${version.replace(/\//g, '')}`,
+    version: `${version || ''}`
+      .split('/')
+      .map(str => str.replace(new RegExp('/', 'g'), ''))
+      .filter(Boolean)
+      .join('/'),
   }));
 };
 

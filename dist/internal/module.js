@@ -26,7 +26,11 @@ exports.createModule = createModule;
 const addVersionOnRoutes = (appModules, version) => {
     return appModules.map((appModule) => ({
         ...appModule,
-        version: `/${version.replace(/\//g, '')}`,
+        version: `${version || ''}`
+            .split('/')
+            .map(str => str.replace(new RegExp('/', 'g'), ''))
+            .filter(Boolean)
+            .join('/'),
     }));
 };
 exports.addVersionOnRoutes = addVersionOnRoutes;
