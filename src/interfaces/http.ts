@@ -22,7 +22,7 @@ export interface HttpOptions {
   };
 }
 
-interface IHttpFile {
+export interface IHttpFile {
   mimetype: string;
   filename: string;
   buffer: Buffer;
